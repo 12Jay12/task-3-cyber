@@ -1,3 +1,36 @@
+this is my apk file, give me with decompile
+
+
+The APK is decompiled.
+
+Output folder:
+[\/Users\/jayamin\/Documents\/New project\/a1_case1_decompiled](/Users/jayamin/Documents/New%20project/a1_case1_decompiled)
+
+Main files:
+- Manifest: [\/Users\/jayamin\/Documents\/New project\/a1_case1_decompiled\/AndroidManifest.xml](/Users/jayamin/Documents/New%20project/a1_case1_decompiled/AndroidManifest.xml)
+- Resources: [\/Users\/jayamin\/Documents\/New project\/a1_case1_decompiled\/res](/Users/jayamin/Documents/New%20project/a1_case1_decompiled/res)
+- Smali code: [\/Users\/jayamin\/Documents\/New project\/a1_case1_decompiled\/smali](/Users/jayamin/Documents/New%20project/a1_case1_decompiled/smali)
+
+This decompilation was done with `apktool`, so you have resources + manifest + Smali, not reconstructed Java source. If you want, I can next:
+1. inspect the package/app entry points,
+2. search for API URLs, keys, or interesting code,
+3. help produce Java-like source by installing a Java decompiler if you want that too.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 "you are a pro penetration tester , find critical vulnerabilities"
 
 
