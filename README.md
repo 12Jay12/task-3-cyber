@@ -55,3 +55,15 @@ If you want, I can do the next step and turn this into a short pentest report wi
 - proof of code path
 - remediation
 - CVSS-style severity suggestions.
+
+
+
+
+
+
+
+
+
+The app generates a session token in [Login.smali](/Users/jayamin/Documents/New%20project/a1_case1_decompiled/smali/com/example/mastg_test0016/Login.smali#L337) using `java.util.Random` to build a 16-character alphanumeric string. That is inappropriate for a security-sensitive value because `java.util.Random` is predictable and not designed for secrets such as session identifiers. A secure session token should come from a cryptographically secure generator like `SecureRandom` and be validated as part of real access control. In this APK, the token is stored in `SharedPreferences` in [Login.smali](/Users/jayamin/Documents/New%20project/a1_case1_decompiled/smali/com/example/mastg_test0016/Login.smali#L414), but [Profile.smali](/Users/jayamin/Documents/New%20project/a1_case1_decompiled/smali/com/example/mastg_test0016/Profile.smali#L74) never checks it before granting access, so the token is weak and effectively unused for protection.
+
+A realistic attacker is a rooted-device user, malware running on a compromised phone, or a forensic analyst with access to app-private storage. Such an attacker can read the stored token, inspect app files, and decompile the APK to understand the generation logic. The attack path is straightforward: obtain local access, extract the stored session token or study the predictable PRNG-based generation method, then reuse or predict session values for impersonation if the app relied on them. In this case, the design is even weaker because no token validation protects the profile screen, so session handling fails to enforce authorization at all.
